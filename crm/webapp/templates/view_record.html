@@ -1,0 +1,39 @@
+{% extends 'base.html' %} {% load crispy_forms_tags %} {% block content %}
+
+<body>
+  <br />
+  <br />
+
+  <div class="card">
+    <h3>View Your Account</h3>
+    <hr />
+
+    <div class="card-body">
+      <strong> {{record.first_name}} {{ record.last_name}} </strong>
+
+      <p><strong>ID:</strong> {{ record.id}}</p>
+      <p><strong>Email:</strong> {{ record.email}}</p>
+
+      <p><strong>Phone:</strong> {{ record.phone}}</p>
+      <p><strong>Address:</strong> {{ record.address}}</p>
+      <p><strong> City :</strong> {{ record.city}}</p>
+      <p><strong>province:</strong> {{ record.province}}</p>
+      <p><strong>Country:</strong> {{ record.country}}</p>
+      <p><strong>Date Joined :</strong> {{ record.creation_date}}</p>
+    </div>
+
+    <p>
+      <a class="btn btn-secondary" href="{% url 'dashboard' %}"
+        >&nbsp; <i class="fa fa-arrow-left" aria-hidden="true"></i> Return
+      </a>
+      <a class="btn btn-success" href="{% url 'update_record' record.id  %}">
+        Update Record &nbsp; <i class="fa fa-plus" aria-hidden="true"></i>
+      </a>
+      <a class="btn btn-danger" href="{% url 'delete_record' record.id %}">
+        Delete &nbsp; <i class="fa fa-minus-circle" aria-hidden="true"></i>
+      </a>
+    </p>
+  </div>
+</body>
+
+{% endblock %}
